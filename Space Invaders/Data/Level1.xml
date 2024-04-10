@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Level>
+	<ChallengingStage value="false" />
+	<Spawn path="1" priority="0">
+		<Enemy type="Butterfly" index="0" />
+		<Enemy type="Butterfly" index="1" />
+		<Enemy type="Butterfly" index="2" />
+		<Enemy type="Butterfly" index="3" />
+		<Enemy type="Butterfly" index="4" />
+		<Enemy type="Butterfly" index="9" />
+		<Enemy type="Butterfly" index="8" />
+		<Enemy type="Butterfly" index="5" />
+		<Enemy type="Butterfly" index="6" />
+		<Enemy type="Butterfly" index="7" />
+		<Enemy type="Butterfly" index="15" />
+		<Enemy type="Butterfly" index="10" />
+		<Enemy type="Butterfly" index="11" />
+		<Enemy type="Butterfly" index="12" />
+		<Enemy type="Butterfly" index="13" />
+		<Enemy type="Butterfly" index="14" />
+	</Spawn>
+</Level>
