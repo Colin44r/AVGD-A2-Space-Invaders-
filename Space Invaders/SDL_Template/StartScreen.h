@@ -28,7 +28,7 @@ private:
 	int mSelectedMode;
 
 	GameEntity* mBottomBar;
-	Texture* mNamco;
+	Texture* mGreenSkull2;
 	Texture* mDates;
 	Texture* mRights;
 
