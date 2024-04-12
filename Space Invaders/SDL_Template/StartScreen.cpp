@@ -10,13 +10,15 @@ StartScreen::StartScreen() {
 	mHiScore = new Texture("HI SCORE", "emulogic.ttf", 32, { 200, 0, 0 });
 	
 	mBottomBar = new GameEntity(Graphics::SCREEN_WIDTH * 0.5f,Graphics::SCREEN_HEIGHT * 0.7f);
-	mGreenSkull2 = new Texture("GeneralSprite", "GeneralSprite", 36, { 200, 0, 0 });
-	mDates = new Texture("1981 1985 NAMCO LTD.", "emulogic.ttf", 32, { 230, 230, 230 });
-	mRights = new Texture("ALL RIGHTS RESERVED", "emulogic.ttf", 32, { 230, 230, 230 });
+	mPleaseSelect = new Texture("PLEASE SELECT", "emulogic.ttf", 32, { 0, 200, 200 });
+	mRights = new Texture("© TATITO CORP.MCMLXXXV", "emulogic.ttf", 32, { 200, 0, 0 });
+
+	mGreenSkull2 = new Texture("GeneralSprite", 0, 9, 8, 8);
+
 
 	mBottomBar->Parent(this);
 	mGreenSkull2->Parent(mBottomBar);
-	mDates->Parent(mBottomBar);
+	mPleaseSelect->Parent(mBottomBar);
 	mRights->Parent(mBottomBar);
 
 	mTopBar->Parent(this);
@@ -41,10 +43,13 @@ StartScreen::StartScreen() {
 	mOnePlayerMode->Position(0.0f, -35.0f);
 	mTwoPlayerMode->Position(0.0f, 35.0f);
 	mCursor->Position(-175.0, -35.0f);
-
-	mGreenSkull2->Position(Vec2_Zero);
-	mDates->Position(0.0f, 90.0f);
+	mGreenSkull2->Position(0.0f, 90.0f);
+	mPleaseSelect->Position(0.0f, -300.0f);
 	mRights->Position(0.0f, 170.0f);
+	mPlayerOne->Position(270.0f, 200.0f);
+
+
+	mGreenSkull2->Scale(Vector2(4.75f, 4.15f));
 
 
 	mLogo = new Texture("GalagaLogo.png", 0, 0, 360, 180);
@@ -80,8 +85,8 @@ StartScreen::~StartScreen() {
 	
 	delete mGreenSkull2;
 	mGreenSkull2 = nullptr;
-	delete mDates;
-	mDates = nullptr;
+	delete mPleaseSelect;
+	mPleaseSelect = nullptr;
 	delete mRights;
 	mRights = nullptr;
 
@@ -142,12 +147,12 @@ void StartScreen::Render() {
 	mCursor->Render();
 	mRights->Render();
 
-	mDates->Render();
+	mPleaseSelect->Render();
 	mGreenSkull2->Render();
 
 
-	mLogo->Render();
-	mAnimatedLogo->Render();
+	//mLogo->Render();
+	//mAnimatedLogo->Render();
 
 }
 

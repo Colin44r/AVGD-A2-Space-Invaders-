@@ -29,7 +29,7 @@ private:
 
 	GameEntity* mBottomBar;
 	Texture* mGreenSkull2;
-	Texture* mDates;
+	Texture* mPleaseSelect;
 	Texture* mRights;
 
 	Texture* mLogo;
