@@ -45,7 +45,27 @@ StartScreen::StartScreen() {
 	mGreenSkull2->Position(Vec2_Zero);
 	mDates->Position(0.0f, 90.0f);
 	mRights->Position(0.0f, 170.0f);
+<<<<<<< Updated upstream
 	
+=======
+
+	mLogo = new Texture("GalagaLogo.png", 0, 0, 360, 180);
+	mAnimatedLogo = new AnimatedTexture("GalagaLogo.png", 0, 0, 360, 180, 3, 0.5f, AnimatedTexture::Vertical);
+
+	mLogo->Parent(this);
+	mAnimatedLogo->Parent(this);
+
+	mLogo->Position(Graphics::SCREEN_WIDTH * 0.5f, Graphics::SCREEN_HEIGHT * 0.32f);
+	mAnimatedLogo->Position(Graphics::SCREEN_WIDTH * 0.5f, Graphics::SCREEN_HEIGHT * 0.32f);
+
+	//mAnimationStartPos = Vector2(0.0f, Graphics::SCREEN_HEIGHT);
+	/*mAnimationEndPos = Vec2_Zero;
+	mAnimationTotalTime = 5.0f;
+	mAnimationTimer = 0.0f;
+	mAnimationDone = false;
+
+	Position(mAnimationStartPos);*/
+>>>>>>> Stashed changes
 }
 
 StartScreen::~StartScreen() {
@@ -74,12 +94,70 @@ StartScreen::~StartScreen() {
 	delete mRights;
 	mRights = nullptr;
 
+<<<<<<< Updated upstream
 	mTimer = nullptr;
 	mInputManager = nullptr;
 }
 
 void StartScreen::Update() {
 
+=======
+	delete mLogo;
+	mLogo = nullptr;
+	//delete mAnimatedLogo;
+	//mAnimatedLogo = nullptr;
+	
+
+	mTimer = nullptr;
+	mInputManager = nullptr;
+}
+//
+void StartScreen::ResetAnimation() {
+//	mAnimationStartPos = Vector2(0.0f, Graphics::SCREEN_HEIGHT);
+//	mAnimationEndPos = Vec2_Zero;
+//	mAnimationTotalTime = 5.0f;
+//	mAnimationTimer = 0.0f;
+//	mAnimationDone = false;
+}
+
+void StartScreen::ChangeSelectedMode(int change) {
+	mSelectedMode += change;
+
+	if (mSelectedMode < 0) {
+		mSelectedMode = 1;
+	}
+	else if (mSelectedMode > 1) {
+		mSelectedMode = 0;
+	}
+
+	mCursor->Position(mCursorStartPos + mCursorOffset * (float)mSelectedMode);
+}
+
+void StartScreen::Update() {
+	/*if (!mAnimationDone) {
+		mAnimationTimer += mTimer->DeltaTime();
+		
+		Position(Lerp(mAnimationStartPos, mAnimationEndPos, mAnimationTimer / mAnimationTotalTime));
+
+		if (mAnimationTimer >= mAnimationTotalTime) {
+			mAnimationDone = true;
+		}
+
+		if (mInputManager->KeyPressed(SDL_SCANCODE_DOWN) || mInputManager->KeyPressed(SDL_SCANCODE_UP)) {
+			mAnimationTimer = mAnimationTotalTime;
+		}
+	}*/
+	
+		mAnimatedLogo->Update();
+
+	if (mInputManager->KeyPressed(SDL_SCANCODE_DOWN)) {
+			ChangeSelectedMode(1);
+	}
+	else if (mInputManager->KeyPressed(SDL_SCANCODE_UP)) {
+			ChangeSelectedMode(-1);
+	}
+	//}
+>>>>>>> Stashed changes
 }
 
 void StartScreen::Render() {
@@ -90,6 +168,19 @@ void StartScreen::Render() {
 	mTwoPlayerMode->Render();
 	mCursor->Render();
 	mRights->Render();
+<<<<<<< Updated upstream
 	mDates->Render();
 	mGreenSkull2->Render();
 }
+=======
+	mLogo->Render();
+	mAnimatedLogo->Render();
+
+	/*if (!mAnimationDone) {
+		mLogo->Render();
+	}
+	else {
+		mAnimatedLogo->Render();
+	}*/
+}
+>>>>>>> Stashed changes
