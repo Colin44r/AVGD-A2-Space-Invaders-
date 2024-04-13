@@ -13,7 +13,12 @@ private:
 	GameEntity* mTopBar;
 	Texture* mPlayerOne;
 	Texture* mPlayerTwo;
-	Texture* mHiScore;
+	Texture* mScore;
+	Texture* mHigh;
+	Texture* m1or2Players;
+	Texture* m5000Display;
+	Texture* m0Display;
+
 	Scoreboard* mPlayerOneScore;
 	Scoreboard* mPlayerTwoScore;
 	Scoreboard* mTopScore;
