@@ -39,8 +39,8 @@ StartScreen::StartScreen() {
 	mPlayerTwo->Position(Graphics::SCREEN_WIDTH * 0.2f, 0.0f);
 	mHigh->Position(330.0f, 0.0f);
 	mScore->Position(375.0f, 35.0f);
-	m0Display->Position(375.0f, 250.0f);
-	m5000Display ->Position(375.0f, 80.0f);
+	m0Display->Position(375.0f, 210.0f);
+	m5000Display ->Position(375.0f, 90.0f);
 
 	mPlayerModes = new GameEntity(Graphics::SCREEN_WIDTH * 0.5f, Graphics::SCREEN_HEIGHT * 0.55f);
 	mOnePlayerMode = new Texture("1 Player ", "emulogic.ttf", 32, { 0, 230, 230 });
@@ -57,8 +57,8 @@ StartScreen::StartScreen() {
 	mCursor->Position(-225.0, -5.0f);
 	mPleaseSelect->Position(-100.0f, -300.0f);
 	mRights->Position(-100.0f, 170.0f);
-	mPlayerOne->Position(330.0f, 200.0f);
-	mPlayerTwo->Position(330.0f, 350.0f);
+	mPlayerOne->Position(330.0f, 150.0f);
+	mPlayerTwo->Position(330.0f, 270.0f);
 	mGreenSkull2->Position(-100.0f, -485.0f);
 	m1or2Players->Position(-100.0f, -230.0f);
 
