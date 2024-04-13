@@ -18,7 +18,13 @@ StartScreen::StartScreen() {
 	mGreenSkull2 = new Texture("GeneralSprite.png", 9, 0, 8, 8);
 	m5000Display = new Texture("05000", "emulogic.ttf", 32, { 255, 255, 255 });
 	m0Display =  new Texture("00000", "emulogic.ttf", 32, { 255, 255, 255 });
+	mRound = new Texture("ROUND", "emulogic.ttf", 32, { 255, 255, 255 });
 
+
+	mPlayerModes = new GameEntity(Graphics::SCREEN_WIDTH * 0.5f, Graphics::SCREEN_HEIGHT * 0.55f);
+	mOnePlayerMode = new Texture("1 Player ", "emulogic.ttf", 32, { 0, 255, 0 });
+	mTwoPlayerMode = new Texture("2 Player ", "emulogic.ttf", 32, { 0, 255, 255 });
+	mCursor = new Texture("GeneralSprite.png", 103, 63, 8, 8);
 
 	mBottomBar->Parent(this);
 	mGreenSkull2->Parent(mBottomBar);
@@ -33,7 +39,7 @@ StartScreen::StartScreen() {
 	mHigh->Parent(mTopBar);
 	m5000Display->Parent(mTopBar);
 	m0Display->Parent(mTopBar);
-
+	mRound->Parent(mTopBar);
 
 	mPlayerOne->Position(-Graphics::SCREEN_WIDTH * 0.35f, 0.0f);
 	mPlayerTwo->Position(Graphics::SCREEN_WIDTH * 0.2f, 0.0f);
@@ -41,11 +47,7 @@ StartScreen::StartScreen() {
 	mScore->Position(375.0f, 35.0f);
 	m0Display->Position(375.0f, 210.0f);
 	m5000Display ->Position(375.0f, 90.0f);
-
-	mPlayerModes = new GameEntity(Graphics::SCREEN_WIDTH * 0.5f, Graphics::SCREEN_HEIGHT * 0.55f);
-	mOnePlayerMode = new Texture("1 Player ", "emulogic.ttf", 32, { 0, 230, 230 });
-	mTwoPlayerMode = new Texture("2 Player ", "emulogic.ttf", 32, { 0, 230, 230 });
-	mCursor = new Texture("GeneralSprite.png", 103, 63, 8, 8);
+	mRound->Position(365.0f, 450.0f);
 
 	mPlayerModes->Parent(this);
 	mOnePlayerMode->Parent(mPlayerModes);
@@ -54,9 +56,9 @@ StartScreen::StartScreen() {
 
 	mOnePlayerMode->Position(-50.0f, -5.0f);
 	mTwoPlayerMode->Position(-50.0f, 70.0f);
-	mCursor->Position(-225.0, -5.0f);
+	mCursor->Position(-245.0, -5.0f);
 	mPleaseSelect->Position(-100.0f, -300.0f);
-	mRights->Position(-100.0f, 170.0f);
+	mRights->Position(-120.0f, 170.0f);
 	mPlayerOne->Position(330.0f, 150.0f);
 	mPlayerTwo->Position(330.0f, 270.0f);
 	mGreenSkull2->Position(-100.0f, -485.0f);
@@ -108,6 +110,8 @@ StartScreen::~StartScreen() {
 	m5000Display = nullptr;
 	delete m0Display;
 	m0Display = nullptr;
+	delete mRound;
+	mRound = nullptr;
 
 
 	mTimer = nullptr;
@@ -172,6 +176,7 @@ void StartScreen::Render() {
 	mGreenSkull2->Render();
 	m0Display ->Render();
 	m5000Display->Render();
+	mRound->Render();
 
 	//mLogo->Render();
 	//mAnimatedLogo->Render();
