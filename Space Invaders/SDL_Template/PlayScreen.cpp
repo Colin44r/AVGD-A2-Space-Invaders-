@@ -3,6 +3,7 @@
 PlayScreen::PlayScreen() {
 	mTimer = Timer::Instance();
 	mAudio = AudioManager::Instance();
+	mInputManager = InputManager::Instance();
 
 	mSideBar = new PlaySideBar();
 	mSideBar->Parent(this);
@@ -19,6 +20,7 @@ PlayScreen::PlayScreen() {
 
 	Enemy::CreatePaths();
 	Butterfly::CreateDivePaths();
+
 }
 
 PlayScreen::~PlayScreen() {
@@ -38,6 +40,10 @@ PlayScreen::~PlayScreen() {
 void PlayScreen::Update() {
 	if (mGameStarted) {
 		mPlayer->Update();
+		if (mInputManager->KeyPressed(SDL_SCANCODE_Y))
+			mShips =      ;
+			
+			
 
 		if (!mLevelStarted) {
 			mLevelStartTimer += mTimer->DeltaTime();

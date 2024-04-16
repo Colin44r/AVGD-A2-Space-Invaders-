@@ -11,6 +11,7 @@ class PlayScreen : public GameEntity {
 private:
 	Timer* mTimer;
 	AudioManager* mAudio;
+	InputManager* mInputManager;
 
 	PlaySideBar* mSideBar;
 
