@@ -16,6 +16,7 @@ private:
 
 	StartScreen* mStartScreen;
 	PlayScreen* mPlayScreen;
+	PlaySideBar* mSideBarSS;
 
 public:
 	static ScreenManager* Instance();

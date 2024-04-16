@@ -77,6 +77,11 @@ StartScreen::StartScreen() {
 	mAnimatedLogo->Position(Graphics::SCREEN_WIDTH * 0.5f, Graphics::SCREEN_HEIGHT * 0.32f);
 
 
+	mCursorStartPos = mCursor->Position(Local);
+	mCursorOffset = Vector2(0, 80);
+
+
+
 }
 
 StartScreen::~StartScreen() {

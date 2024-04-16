@@ -22,6 +22,9 @@ ScreenManager::ScreenManager() {
 	mPlayScreen = new PlayScreen();
 
 	mCurrentScreen = Start;
+
+	mSideBarSS = new PlaySideBar();
+
 }
 
 ScreenManager::~ScreenManager() {
@@ -35,7 +38,7 @@ ScreenManager::~ScreenManager() {
 
 void ScreenManager::Update() {
 	//Call update on any background image/effect that you want to persist between screens here!
-
+	mSideBarSS ->Update();
 
 	switch (mCurrentScreen)
 	{
@@ -64,7 +67,7 @@ void ScreenManager::Update() {
 
 void ScreenManager::Render() {
 	//Call Render on any background image/effect that you want to persist between screens here!
-
+	mSideBarSS->Render();
 
 	switch (mCurrentScreen)
 	{

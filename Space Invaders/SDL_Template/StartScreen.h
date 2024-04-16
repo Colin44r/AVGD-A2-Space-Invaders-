@@ -2,6 +2,7 @@
 #include "AnimatedTexture.h"
 #include "InputManager.h"
 #include "Scoreboard.h"
+#include "PlaySideBar.h"
 
 using namespace SDLFramework;
 
@@ -46,6 +47,8 @@ private:
 	float mAnimationTotalTime;
 	float mAnimationTimer;
 	bool mAnimationDone;
+
+	
 
 public:
 	StartScreen();
