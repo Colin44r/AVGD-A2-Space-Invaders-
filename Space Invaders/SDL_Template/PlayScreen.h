@@ -29,7 +29,7 @@ private:
 	Player* mPlayer;
 
 public:
-	PlayScreen();
+	PlayScreen(PlaySideBar* mSideBarPS);
 	~PlayScreen();
 
 	void StartNewGame();

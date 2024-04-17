@@ -9,11 +9,11 @@ PlaySideBar::PlaySideBar() {
 	mBackground->Scale(Vector2(3.0f, 10.0f));
 	mBackground->Position(45.0f, 380.0f);
 
-	mHighLabel = new Texture("HIGH", "emulogic.ttf", 32, { 150, 0, 0 });
+	mHighLabel = new Texture("HIGH", "emulogic.ttf", 32, { 255,255, 255 });
 	mHighLabel->Parent(this);
 	mHighLabel->Position(-25.0f, 0.0f);
 
-	mScoreLabel = new Texture("SCORE", "emulogic.ttf", 32, { 150, 0, 0 });
+	mScoreLabel = new Texture("SCORE", "emulogic.ttf", 32, { 255, 255, 255 });
 	mScoreLabel->Parent(this);
 	mScoreLabel->Position(25.0f, 32.0f);
 
@@ -21,7 +21,7 @@ PlaySideBar::PlaySideBar() {
 	mHighScoreBoard->Parent(this);
 	mHighScoreBoard->Position(90.0f, 64.0f);
 
-	mPlayerOneLabel = new Texture("1UP", "emulogic.ttf", 32, { 150, 0, 0 });
+	mPlayerOneLabel = new Texture("1UP", "emulogic.ttf", 32, { 255, 255, 255 });
 	mPlayerOneLabel->Parent(this);
 	mPlayerOneLabel->Position(-45.0f, 160.0f);
 
@@ -98,7 +98,7 @@ void PlaySideBar::SetPlayerScore(int score) {
 	mPlayerOneScore->Score(score);
 }
 
-void PlaySideBar::SetShip(int ships) {
+void PlaySideBar::SetLives(int ships) {
 	mTotalShips = ships;
 
 	if (ships > MAX_SHIP_TEXTURES) {
@@ -188,12 +188,7 @@ void PlaySideBar::SetLevel(int level) {
 }
 
 void PlaySideBar::Update() {
-	mBlinkTimer += mTimer->DeltaTime();
-	if (mBlinkTimer >= mBlinkInterval) {
-		mPlayerOneLabelVisible = !mPlayerOneLabelVisible;
-		mBlinkTimer = 0.0f;
-	}
-
+	
 	if (mRemainingLevels > 0) {
 		mFlagTimer += mTimer->DeltaTime();
 		if (mFlagTimer >= mFlagInterval) {
@@ -208,13 +203,10 @@ void PlaySideBar::Render() {
 	mHighLabel->Render();
 	mScoreLabel->Render();
 	mHighScoreBoard->Render();
-
+	mPlayerOneLabel->Render();
 	mPlayerOneScore->Render();
 
-	if (mPlayerOneLabelVisible) {
-		mPlayerOneLabel->Render();
-	}
-
+	
 	for (int i = 0; i < MAX_SHIP_TEXTURES && i < mTotalShips; ++i) {
 		mShipTextures[i]->Render();
 	}

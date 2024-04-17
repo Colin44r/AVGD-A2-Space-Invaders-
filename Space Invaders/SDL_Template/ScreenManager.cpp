@@ -15,16 +15,20 @@ void ScreenManager::Release() {
 	sInstance = nullptr;
 }
 
+//mSideBar->Render();
+
 ScreenManager::ScreenManager() {
 	mInput = InputManager::Instance();
 
 	mStartScreen = new StartScreen();
-	mPlayScreen = new PlayScreen();
+	
 
 	mCurrentScreen = Start;
 
 	mSideBarSS = new PlaySideBar();
+	mSideBarSS->Position(970.0f, 70.0f);
 
+	mPlayScreen = new PlayScreen(mSideBarSS);
 }
 
 ScreenManager::~ScreenManager() {
