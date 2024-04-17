@@ -16,6 +16,7 @@ private:
 	PlaySideBar* mSideBar;
 
 	Texture* mStartLabel;
+	
 
 	float mLevelStartTimer;
 	float mLevelStartDelay;
