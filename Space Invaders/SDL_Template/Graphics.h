@@ -11,6 +11,7 @@
 #endif
 #include <iostream>
 #include <string>
+#include "glew.h"
 
 namespace SDLFramework {
 
@@ -26,6 +27,8 @@ namespace SDLFramework {
 
 		SDL_Window * mWindow;
 		SDL_Renderer * mRenderer;
+
+		SDL_GLContext glContext;
 
 	public:
 		static Graphics * Instance();

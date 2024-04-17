@@ -108,17 +108,17 @@ namespace SDLFramework {
 			SDL_WINDOWPOS_UNDEFINED,	// window y pos
 			SCREEN_WIDTH,				// window width
 			SCREEN_HEIGHT,				// window height
-			SDL_WINDOW_SHOWN);			// window flags
+			SDL_WINDOW_OPENGL);			// window flags
 		if (mWindow == nullptr) {
 			std::cerr << "Unable to create Window! SDL Error: " << SDL_GetError() << std::endl;
 			return false;
 		}
 
-		mRenderer = SDL_CreateRenderer(mWindow, -1, SDL_RENDERER_ACCELERATED);
+	/*	mRenderer = SDL_CreateRenderer(mWindow, -1, SDL_RENDERER_ACCELERATED);
 		if (mRenderer == nullptr) {
 			std::cerr << "Unable to create renderer! SDL Error: " << SDL_GetError() << std::endl;
 			return false;
-		}
+		}*/
 
 		//Temporairily change background color to white!
 		//SDL_SetRenderDrawColor(mRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
@@ -133,6 +133,18 @@ namespace SDLFramework {
 			std::cerr << "Unable to initialized SDL_ttf! TTF Error: " << TTF_GetError() << std::endl;
 			return false;
 		}
+
+		glContext = SDL_GL_CreateContext(mWindow);
+		if (glContext == nullptr) {
+			std::cerr << "SDL_GL Context could not be created" << SDL_GetError() << std::endl;
+
+		}
+
+		GLenum error = glewInit();
+		if (error != GLEW_OK) {
+			std::cerr << "Could not initialize glew!" << glewGetErrorString(error) << std::endl;
+		}
+
 
 		return true;
 	}

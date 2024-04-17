@@ -94,11 +94,11 @@ xcopy "$(ProjectDir)..\Assets\*" "$(OutDir)Assets\" /y /s</Command>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\SDL2-2.30.1\include;C:\SDL2_image-2.0.4\include;C:\SDL2_mixer-2.8.0\include;C:\SDL2_ttf-2.22.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\SDL2-2.30.1\include;C:\SDL2_image-2.0.4\include;C:\SDL2_mixer-2.8.0\include;C:\SDL2_ttf-2.22.0\include;C:\glew-2.1.0\include\GL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\SDL2-2.30.1\lib\x64;C:\SDL2_image-2.0.4\lib\x64;C:\SDL2_ttf-2.22.0\lib\x64;C:\SDL2_mixer-2.8.0\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\glew-2.1.0\lib\Release\x64;C:\SDL2-2.30.1\lib\x64;C:\SDL2_image-2.0.4\lib\x64;C:\SDL2_ttf-2.22.0\lib\x64;C:\SDL2_mixer-2.8.0\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;glew32s.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
