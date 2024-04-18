@@ -11,6 +11,7 @@ class PlayScreen : public GameEntity {
 private:
 	Timer* mTimer;
 	AudioManager* mAudio;
+	InputManager* mInputManager;
 
 	PlaySideBar* mSideBar;
 
@@ -33,7 +34,7 @@ private:
 	Player* mPlayer;
 	 
 public:
-	PlayScreen();
+	PlayScreen(PlaySideBar* mSideBarPS);
 	~PlayScreen();
 
 	void StartNewGame();

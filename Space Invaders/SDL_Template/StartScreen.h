@@ -2,6 +2,7 @@
 #include "AnimatedTexture.h"
 #include "InputManager.h"
 #include "Scoreboard.h"
+#include "PlaySideBar.h"
 
 using namespace SDLFramework;
 
@@ -13,7 +14,13 @@ private:
 	GameEntity* mTopBar;
 	Texture* mPlayerOne;
 	Texture* mPlayerTwo;
-	Texture* mHiScore;
+	Texture* mScore;
+	Texture* mHigh;
+	Texture* m1or2Players;
+	Texture* m5000Display;
+	Texture* m0Display;
+	Texture* mRound;
+
 	Scoreboard* mPlayerOneScore;
 	Scoreboard* mPlayerTwoScore;
 	Scoreboard* mTopScore;
@@ -30,8 +37,8 @@ private:
 	//int GetSelectedMode();
 
 	GameEntity* mBottomBar;
-	Texture* mNamco;
-	Texture* mDates;
+	Texture* mGreenSkull2;
+	Texture* mPleaseSelect;
 	Texture* mRights;
 
 	Texture* mLogo;
@@ -43,6 +50,8 @@ private:
 	float mAnimationTimer;
 	bool mAnimationDone;
 	//bool mSelectedMode;
+
+	
 
 public:
 	StartScreen();

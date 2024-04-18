@@ -173,6 +173,9 @@
     <ClInclude Include="tinyxml2.h">
       <Filter>Header Files\TinyXML</Filter>
     </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>Header Files\Galaga</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\Data\Level1.xml">

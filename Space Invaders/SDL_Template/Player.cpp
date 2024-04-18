@@ -77,6 +77,11 @@ void Player::AddScore(int change) {
 	mScore += change;
 }
 
+void Player::MinusLives(int change) {
+	mLives -= change ;
+}
+
+
 void Player::WasHit() {
 	mLives -= 1;
 	mAnimating = true;

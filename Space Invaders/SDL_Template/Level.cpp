@@ -21,7 +21,7 @@ void Level::HandleCollisions() {
 	if (!mPlayerHit) {
 		if (InputManager::Instance()->KeyPressed(SDL_SCANCODE_X)) {
 			mPlayer->WasHit();
-			mSideBar->SetShip(mPlayer->Lives());
+			mSideBar->SetLives(mPlayer->Lives());
 
 			mPlayerHit = true;
 			mRespawnTimer = 0.0f;

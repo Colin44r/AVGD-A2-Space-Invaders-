@@ -70,7 +70,7 @@ private:
 	void StartStage();
 	void HandleStartLabels();
 	void HandleCollisions();
-	void HandlePlayerDeath();
+	
 
 	void HandleEnemySpawning();
 	void HandleEnemyFormation();
@@ -84,6 +84,8 @@ public:
 	~Level();
 
 	LevelStates State();
+
+	void HandlePlayerDeath();
 
 	void Update();
 	void Render();

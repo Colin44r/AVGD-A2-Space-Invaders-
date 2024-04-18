@@ -48,7 +48,7 @@ public:
 
 	void SetHighScore(int score);
 	void SetPlayerScore(int score);
-	void SetShip(int ships);
+	void SetLives(int ships);
 	void SetLevel(int level);
 
 	void Update() override;
