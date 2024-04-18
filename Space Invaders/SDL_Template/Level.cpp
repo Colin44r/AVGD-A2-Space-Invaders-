@@ -1,4 +1,5 @@
 #include "Level.h"
+#include "PlayScreen.h"
 
 void Level::HandleStartLabels() {
 	mLabelTimer += mTimer->DeltaTime();
@@ -69,23 +70,23 @@ Level::Level(int stage, PlaySideBar* sideBar, Player* player) {
 
 	mLabelTimer = 0.0f;
 
-	mStageLabel = new Texture("STAGE", "emulogic.ttf", 32, { 75, 75, 200 });
-	mStageLabel->Parent(this);
-	mStageLabel->Position(Graphics::SCREEN_WIDTH * 0.35f, Graphics::SCREEN_HEIGHT * 0.5f);
+	//mStageLabel = new Texture("STAGE", "emulogic.ttf", 32, { 75, 75, 200 });
+	//mStageLabel->Parent(this);
+	//mStageLabel->Position(Graphics::SCREEN_WIDTH * 0.35f, Graphics::SCREEN_HEIGHT * 0.5f);
 
-	mStageNumber = new Scoreboard({ 75, 75, 200 });
-	mStageNumber->Score(mStage);
-	mStageNumber->Parent(this);
-	mStageNumber->Position(Graphics::SCREEN_WIDTH * 0.5f, Graphics::SCREEN_HEIGHT * 0.5f);
+	//mStageNumber = new Scoreboard({ 75, 75, 200 });
+	//mStageNumber->Score(mStage);
+	//mStageNumber->Parent(this);
+	//mStageNumber->Position(Graphics::SCREEN_WIDTH * 0.5f, Graphics::SCREEN_HEIGHT * 0.5f);
 
 	mStageLabelOnScreen = 0.0f;
 	mStageLabelOffScreen = 1.5f;
 
-	mReadyLabel = new Texture("READY", "emulogic.ttf", 32, { 150, 0, 0 });
+	mReadyLabel = new Texture("1 PLAYER", "emulogic.ttf", 32, { 230, 230, 230 });
 	mReadyLabel->Parent(this);
-	mReadyLabel->Position(Graphics::SCREEN_WIDTH * 0.4f, Graphics::SCREEN_HEIGHT * 0.5f);
+	mReadyLabel->Position(Graphics::SCREEN_WIDTH * 0.4, Graphics::SCREEN_HEIGHT * 0.5f);
 
-	mReadyLabelOnScreen = mStageLabelOffScreen;
+	mReadyLabelOnScreen = mReadyLabelOffScreen;
 	mReadyLabelOffScreen = mReadyLabelOnScreen + 3.0f;
 
 	mPlayer = player;
@@ -139,10 +140,10 @@ Level::~Level() {
 
 	delete mStageLabel;
 	mStageLabel = nullptr;
-	delete mStageNumber;
+	//delete mStageNumber;
 	mStageNumber = nullptr;
-	delete mReadyLabel;
-	mReadyLabel = nullptr;
+	//delete mReadyLabel;
+	//mReadyLabel = nullptr;
 
 	mPlayer = nullptr;
 
@@ -339,8 +340,8 @@ void Level::Update() {
 void Level::Render() {
 	if (!mStageStarted) {
 		if (mLabelTimer > mStageLabelOnScreen && mLabelTimer < mStageLabelOffScreen) {
-			mStageLabel->Render();
-			mStageNumber->Render();
+			//mStageLabel->Render();
+			//mStageNumber->Render();
 		}
 		else if (mLabelTimer > mReadyLabelOnScreen && mLabelTimer < mReadyLabelOffScreen) {
 			mReadyLabel->Render();

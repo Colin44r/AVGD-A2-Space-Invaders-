@@ -16,7 +16,11 @@ private:
 	PlaySideBar* mSideBar;
 
 	Texture* mStartLabel;
-	
+	Texture* mGreenSkull4;
+
+	GameEntity* mTopSprites;
+
+
 
 	float mLevelStartTimer;
 	float mLevelStartDelay;
@@ -28,7 +32,7 @@ private:
 	int mCurrentStage;
 
 	Player* mPlayer;
-
+	 
 public:
 	PlayScreen(PlaySideBar* mSideBarPS);
 	~PlayScreen();

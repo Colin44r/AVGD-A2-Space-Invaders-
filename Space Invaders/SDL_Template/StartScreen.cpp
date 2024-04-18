@@ -13,7 +13,7 @@ StartScreen::StartScreen() {
 
 	mBottomBar = new GameEntity(Graphics::SCREEN_WIDTH * 0.5f,Graphics::SCREEN_HEIGHT * 0.7f);
 	mPleaseSelect = new Texture("PLEASE  SELECT", "emulogic.ttf", 32, { 0, 255, 255 });
-	mRights = new Texture("© TATITO CORP.MCMLXXXV", "emulogic.ttf", 32, { 255, 0, 0 });
+	mRights = new Texture("ï¿½ TATITO CORP.MCMLXXXV", "emulogic.ttf", 32, { 255, 0, 0 });
 	m1or2Players = new Texture("< 1 or 2 Players >", "emulogic.ttf", 32, { 255, 0, 0 });
 	mGreenSkull2 = new Texture("GeneralSprite.png", 9, 0, 8, 8);
 	//m5000Display = new Texture("05000", "emulogic.ttf", 32, { 255, 255, 255 });
@@ -118,7 +118,12 @@ StartScreen::~StartScreen() {
 	delete mRound;
 	mRound = nullptr;
 
-
+	delete mLogo;
+	mLogo = nullptr;
+	delete mAnimatedLogo;
+	mAnimatedLogo = nullptr;
+	
+	
 	mTimer = nullptr;
 	mInputManager = nullptr;
 	mTimer = nullptr;
@@ -147,10 +152,16 @@ void StartScreen::ChangeSelectedMode(int change) {
 	else if (mSelectedMode > 1) {
 		mSelectedMode = 0;
 	}
+	
 
 	mCursor->Position(mCursorStartPos + mCursorOffset * (float)mSelectedMode);
 	// connect (float)mSelectedMode) to mTwoPlayerMode somehow??? i think.....
 }
+
+//int StartScreen::GetSelectedMode() {
+	//return mSelectedMode;
+
+//}
 
 void StartScreen::Update() {
 	

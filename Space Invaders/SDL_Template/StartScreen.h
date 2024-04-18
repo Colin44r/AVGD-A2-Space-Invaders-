@@ -33,6 +33,8 @@ private:
 	Vector2 mCursorStartPos;
 	Vector2 mCursorOffset;
 	int mSelectedMode;
+	
+	//int GetSelectedMode();
 
 	GameEntity* mBottomBar;
 	Texture* mGreenSkull2;
@@ -47,6 +49,7 @@ private:
 	float mAnimationTotalTime;
 	float mAnimationTimer;
 	bool mAnimationDone;
+	//bool mSelectedMode;
 
 	
 
@@ -55,6 +58,7 @@ public:
 	~StartScreen();
 
 	void ChangeSelectedMode(int change);
+	
 
 	void ResetAnimation();
 
