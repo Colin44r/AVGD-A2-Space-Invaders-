@@ -16,8 +16,8 @@ StartScreen::StartScreen() {
 	mRights = new Texture("© TATITO CORP.MCMLXXXV", "emulogic.ttf", 32, { 255, 0, 0 });
 	m1or2Players = new Texture("< 1 or 2 Players >", "emulogic.ttf", 32, { 255, 0, 0 });
 	mGreenSkull2 = new Texture("GeneralSprite.png", 9, 0, 8, 8);
-	m5000Display = new Texture("05000", "emulogic.ttf", 32, { 255, 255, 255 });
-	m0Display =  new Texture("00000", "emulogic.ttf", 32, { 255, 255, 255 });
+	//m5000Display = new Texture("05000", "emulogic.ttf", 32, { 255, 255, 255 });
+	//m0Display =  new Texture("00000", "emulogic.ttf", 32, { 255, 255, 255 });
 	mRound = new Texture("ROUND", "emulogic.ttf", 32, { 255, 255, 255 });
 
 
@@ -37,16 +37,16 @@ StartScreen::StartScreen() {
 	//mPlayerTwo->Parent(mTopBar);
 	//mScore->Parent(mTopBar);
 	//mHigh->Parent(mTopBar);
-	m5000Display->Parent(mTopBar);
-	m0Display->Parent(mTopBar);
+	//m5000Display->Parent(mTopBar);
+	//m0Display->Parent(mTopBar);
 	mRound->Parent(mTopBar);
 
 	//mPlayerOne->Position(-Graphics::SCREEN_WIDTH * 0.35f, 0.0f);
 	//mPlayerTwo->Position(Graphics::SCREEN_WIDTH * 0.2f, 0.0f);
 	//mHigh->Position(330.0f, 0.0f);
 	//mScore->Position(375.0f, 35.0f);
-	m0Display->Position(375.0f, 210.0f);
-	m5000Display ->Position(375.0f, 90.0f);
+	//m0Display->Position(375.0f, 210.0f);
+	//m5000Display ->Position(375.0f, 90.0f);
 	mRound->Position(365.0f, 450.0f);
 
 	mPlayerModes->Parent(this);
@@ -111,10 +111,10 @@ StartScreen::~StartScreen() {
 	mRights = nullptr;
 	delete m1or2Players;
 	m1or2Players = nullptr;
-	delete m5000Display;
-	m5000Display = nullptr;
-	delete m0Display;
-	m0Display = nullptr;
+//	delete m5000Display;
+	//m5000Display = nullptr;
+	//delete m0Display;
+	//m0Display = nullptr;
 	delete mRound;
 	mRound = nullptr;
 
@@ -179,8 +179,8 @@ void StartScreen::Render() {
 	m1or2Players->Render();
 	mPleaseSelect->Render();
 	mGreenSkull2->Render();
-	m0Display ->Render();
-	m5000Display->Render();
+	//m0Display ->Render();
+	//m5000Display->Render();
 	mRound->Render();
 
 	//mLogo->Render();
