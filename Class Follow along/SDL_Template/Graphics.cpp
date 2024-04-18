@@ -1,4 +1,5 @@
 #include "Graphics.h"
+#include "SDLGraphics.h"
 
 namespace SDLFramework {
 
@@ -8,7 +9,7 @@ namespace SDLFramework {
 	// static member functions
 	Graphics* Graphics::Instance() {
 		if (sInstance == nullptr) {
-			sInstance = new Graphics();
+			sInstance = new SDLGraphics();
 		}
 
 		return sInstance;
@@ -60,9 +61,9 @@ namespace SDLFramework {
 		return tex;
 	}
 
-	void Graphics::DrawTexture(SDL_Texture* tex, SDL_Rect* srcRect, SDL_Rect* dstRect, float angle, SDL_RendererFlip flip) {
-		SDL_RenderCopyEx(mRenderer, tex, srcRect, dstRect, angle, nullptr, flip);
-	}
+	//void Graphics::DrawTexture(SDL_Texture * tex, SDL_Rect * srcRect, SDL_Rect * dstRect, float angle, SDL_RendererFlip flip) {
+	//	SDL_RenderCopyEx(mRenderer, tex, srcRect, dstRect, angle, nullptr, flip);
+	//}
 
 	void Graphics::DrawLine(float startX, float startY, float endX, float endY) {
 		SDL_Color color;
@@ -72,37 +73,37 @@ namespace SDLFramework {
 		SDL_SetRenderDrawColor(mRenderer, color.r, color.g, color.b, color.a);
 	}
 
-	void Graphics::ClearBackBuffer() {
-		SDL_RenderClear(mRenderer);
-	}
+	//void Graphics::ClearBackBuffer() {
+	//	SDL_RenderClear(mRenderer);
+	//}
 
 	//public member functions
-	void Graphics::Render() {
-		SDL_RenderPresent(mRenderer);
+	//void Graphics::Render() {
+	//	SDL_RenderPresent(mRenderer);
 
-		//sets the depth to 1.0
-		glClearDepth(1.0);
+	//	////sets the depth to 1.0
+	//	//glClearDepth(1.0);
 
-		//clear the color and depth buffer
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	//	////clear the color and depth buffer
+	//	//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		//Let GL know we want to use color
-		glEnableClientState(GL_COLOR_ARRAY);
+	//	////Let GL know we want to use color
+	//	//glEnableClientState(GL_COLOR_ARRAY);
 
-		//Draw the triangle
-		glBegin(GL_TRIANGLES);
-		glColor3f(1.0f, 0.0f, 0.0f);
+	//	////Draw the triangle
+	//	//glBegin(GL_TRIANGLES);
+	//	//glColor3f(1.0f, 0.0f, 0.0f);
 
-		glVertex2f(0.0f, 0.0f);
-		glVertex2f(0.0f, -1.0f);
-		glVertex2f(-1.0f, -1.0f);
+	//	//glVertex2f(0.0f, 0.0f);
+	//	//glVertex2f(0.0f, -1.0f);
+	//	//glVertex2f(-1.0f, -1.0f);
 
-		glEnd();
+	//	//glEnd();
 
-		//Swap our buffer and draw to the screen.
-		SDL_GL_SwapWindow(mWindow);
+	//	////Swap our buffer and draw to the screen.
+	//	//SDL_GL_SwapWindow(mWindow);
 
-	}
+	//}
 
 	//private member functions
 	Graphics::Graphics() : mRenderer(nullptr) {
@@ -131,17 +132,17 @@ namespace SDLFramework {
 			SDL_WINDOWPOS_UNDEFINED,	// window ypos
 			SCREEN_WIDTH,				// window width
 			SCREEN_HEIGHT,				// window height
-			SDL_WINDOW_OPENGL);			// window flags
+			SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN);			// window flags
 		if (mWindow == nullptr) {
 			std::cerr << "Unable to create Window! SDL Error: " << SDL_GetError() << std::endl;
 			return false;
 		}
 
-		//mRenderer = SDL_CreateRenderer(mWindow, -1, SDL_RENDERER_ACCELERATED);
-		//if (mRenderer == nullptr) {
-		//	std::cerr << "Unable to create renderer! SDL Error: " << SDL_GetError() << std::endl;
-		//	return false;
-		//}
+		mRenderer = SDL_CreateRenderer(mWindow, -1, SDL_RENDERER_ACCELERATED);
+		if (mRenderer == nullptr) {
+			std::cerr << "Unable to create renderer! SDL Error: " << SDL_GetError() << std::endl;
+			return false;
+		}
 
 		int flags = IMG_INIT_PNG;
 		if (!(IMG_Init(flags) & flags)) {
@@ -156,22 +157,22 @@ namespace SDLFramework {
 
 		//Setup openGL Context
 
-		glContext = SDL_GL_CreateContext(mWindow);
-		if (glContext == nullptr)
-		{
-			std::cerr << "SDL_GL context could not be created!";
-		}
+		//glContext = SDL_GL_CreateContext(mWindow);
+		//if (glContext == nullptr)
+		//{
+		//	std::cerr << "SDL_GL context could not be created!";
+		//}
 
-		//Setup glew
-		GLenum error = glewInit();
-		if (error != GLEW_OK)
-		{
-			std::cerr << "Could not initialize glew!";
-		}
+		////Setup glew
+		//GLenum error = glewInit();
+		//if (error != GLEW_OK)
+		//{
+		//	std::cerr << "Could not initialize glew!";
+		//}
 
-		//Enables a double buffer window - removes flickering.
-		SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-		glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
+		////Enables a double buffer window - removes flickering.
+		//SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+		//glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
 
 		return true;
 	}

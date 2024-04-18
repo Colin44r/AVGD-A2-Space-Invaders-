@@ -11,7 +11,6 @@
 #endif
 #include <iostream>
 #include <string>
-#include "glew.h"
 
 namespace SDLFramework {
 
@@ -21,14 +20,14 @@ namespace SDLFramework {
 		static const short SCREEN_HEIGHT = 896;
 		const char* WINDOW_TITLE = "Galaga";
 
-	private:
+	protected:
 		static Graphics* sInstance;
 		static bool sInitialized;
 
 		SDL_Window* mWindow;
 		SDL_Renderer* mRenderer;
 
-		SDL_GLContext glContext;
+		//SDL_GLContext glContext;
 
 	public:
 		static Graphics* Instance();
@@ -37,17 +36,19 @@ namespace SDLFramework {
 
 		SDL_Texture* LoadTexture(std::string path);
 		SDL_Texture* CreateTextTexture(TTF_Font* font, std::string text, SDL_Color color);
-		void DrawTexture(SDL_Texture* tex, SDL_Rect* srcRect = nullptr, SDL_Rect* dstRect = nullptr, float angle = 0.0f, SDL_RendererFlip flip = SDL_FLIP_NONE);
+
+		virtual void DrawTexture(SDL_Texture* tex, SDL_Rect* srcRect = nullptr, SDL_Rect* dstRect = nullptr, float angle = 0.0f, SDL_RendererFlip flip = SDL_FLIP_NONE) { };
+
 		void DrawLine(float startX, float startY, float endX, float endY);
-		void ClearBackBuffer();
 
-		void Render();
+		virtual void ClearBackBuffer() = 0;
+		virtual void Render() = 0;
 
-	private:
+	protected:
 		Graphics();
 		~Graphics();
 
-		bool Init();
+		virtual bool Init();
 	};
 }
 #endif
