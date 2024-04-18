@@ -8,22 +8,36 @@ PlayScreen::PlayScreen() {
 	mSideBar->Parent(this);
 	mSideBar->Position(Graphics::SCREEN_WIDTH * 0.87, Graphics::SCREEN_HEIGHT * 0.05);
 
-	mStartLabel = new Texture("START", "emulogic.ttf", 32, { 150, 0, 0 });
+	mStartLabel = new Texture("1 PLAYER", "emulogic.ttf", 32, { 230, 230, 230 });
 	mStartLabel->Parent(this);
 	mStartLabel->Position(Graphics::SCREEN_WIDTH * 0.4, Graphics::SCREEN_HEIGHT * 0.5f);
+	mGreenSkull4 = new Texture("GeneralSprite.png", 9, 0, 8, 8);
+
+	mTopSprites = new GameEntity();
+
+	mTopSprites->Parent(this);
+	mGreenSkull4->Parent(mTopSprites);
+
+	mGreenSkull4->Position(0.0f, 170.0f);
+
+
+
 
 	mLevel = nullptr;
 	mLevelStartDelay = 1.0f;
 	mLevelStarted = false;
 	mPlayer = nullptr;
+	
 
 	Enemy::CreatePaths();
 	Butterfly::CreateDivePaths();
 }
 
+
 PlayScreen::~PlayScreen() {
 	mTimer = nullptr;
 	mAudio = nullptr;
+
 
 	delete mSideBar;
 	mSideBar = nullptr;
@@ -33,6 +47,10 @@ PlayScreen::~PlayScreen() {
 	mLevel = nullptr;
 	delete mPlayer;
 	mPlayer = nullptr;
+	delete mGreenSkull4;
+	mGreenSkull4 = nullptr;
+	delete mTopSprites;
+	mTopSprites = nullptr;
 }
 
 void PlayScreen::Update() {
@@ -78,7 +96,7 @@ void PlayScreen::Render() {
 	}
 
 	mSideBar->Render();
-
+	mGreenSkull4->Render();
 }
 
 void PlayScreen::StartNewGame() {
@@ -95,12 +113,12 @@ void PlayScreen::StartNewGame() {
 	mGameStarted = false;
 	mLevelStarted = false;
 	mLevelStartTimer = 0;
-	mCurrentStage = 0;
-	mAudio->PlayMusic("MUS/GameStart.wav", 0);
+	//mCurrentStage = 0;
+	//mAudio->PlayMusic("", 0);
 }
 
 void PlayScreen::StartNextLevel() {
-	mCurrentStage += 1;
+	//mCurrentStage += 1;
 	mLevelStartTimer = 0.0f;
 	mLevelStarted = true;
 
