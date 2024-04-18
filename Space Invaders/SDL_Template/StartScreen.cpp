@@ -117,7 +117,7 @@ StartScreen::~StartScreen() {
 	delete mAnimatedLogo;
 	mAnimatedLogo = nullptr;
 	
-
+	
 	mTimer = nullptr;
 	mInputManager = nullptr;
 }
@@ -139,9 +139,15 @@ void StartScreen::ChangeSelectedMode(int change) {
 	else if (mSelectedMode > 1) {
 		mSelectedMode = 0;
 	}
+	
 
 	mCursor->Position(mCursorStartPos + mCursorOffset * (float)mSelectedMode);
 }
+
+//int StartScreen::GetSelectedMode() {
+	//return mSelectedMode;
+
+//}
 
 void StartScreen::Update() {
 	if (!mAnimationDone) {

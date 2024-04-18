@@ -18,6 +18,8 @@ private:
 	int mStage;
 	bool mStageStarted;
 
+	bool mStartLabel;
+
 	float mLabelTimer;
 
 	Texture* mStageLabel;
