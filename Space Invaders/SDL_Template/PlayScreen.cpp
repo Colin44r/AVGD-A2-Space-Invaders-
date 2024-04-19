@@ -102,11 +102,11 @@ void PlayScreen::Update() {
 			mSideBar->Update();
 		}
 	}
-	//else {
+	else {
 	//	if (!Mix_PlayingMusic()) {
-	//		mGameStarted = true;
+		mGameStarted = true;
 	//	}
-	//}
+	}
 }
 
 void PlayScreen::Render() {
