@@ -132,6 +132,9 @@
     <ClCompile Include="SDLGraphics.cpp">
       <Filter>Source Files\Galaga</Filter>
     </ClCompile>
+    <ClCompile Include="ShaderUtils.cpp">
+      <Filter>Source Files\Galaga</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graphics.h">
@@ -234,6 +237,9 @@
       <Filter>Header Files\Galaga</Filter>
     </ClInclude>
     <ClInclude Include="SDLGraphics.h">
+      <Filter>Header Files\Galaga</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderUtils.h">
       <Filter>Header Files\Galaga</Filter>
     </ClInclude>
   </ItemGroup>
