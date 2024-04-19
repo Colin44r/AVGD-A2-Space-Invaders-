@@ -19,7 +19,7 @@ PlaySideBar::PlaySideBar() {
 
 	mHighScoreBoard = new Scoreboard();
 	mHighScoreBoard->Parent(this);
-	mHighScoreBoard->Position(-45.0f, 74.0f);
+	mHighScoreBoard->Position(35.0f, 74.0f);
 
 	mPlayerOneLabel = new Texture("1UP", "emulogic.ttf", 32, { 255, 255, 255 });
 	mPlayerOneLabel->Parent(this);
@@ -27,7 +27,7 @@ PlaySideBar::PlaySideBar() {
 
 	mRoundLabel = new Texture("Round", "emulogic.ttf", 32, { 255, 255, 255 });
 	mRoundLabel ->Parent(this);
-	mRoundLabel->Position(-45.0f, 460.0f);
+	mRoundLabel->Position(-25.0f, 460.0f);
 
 
 	mBlinkTimer = 0;
@@ -36,7 +36,7 @@ PlaySideBar::PlaySideBar() {
 
 	mPlayerOneScore = new Scoreboard();
 	mPlayerOneScore->Parent(this);
-	mPlayerOneScore->Position(-45.0f, 202.0f);
+	mPlayerOneScore->Position(25.0f, 202.0f);
 
 	mShips = new GameEntity();
 	mShips->Parent(this);

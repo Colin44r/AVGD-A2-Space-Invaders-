@@ -29,7 +29,7 @@ void Level::HandleCollisions() {
 		}
 	}
 }
-
+//TODO: Fix player death isnt killing just removing sprite not ending game ......................
 void Level::HandlePlayerDeath() {
 	if (!mPlayer->IsAnimating()) {
 		if (mPlayer->Lives() > 0) {

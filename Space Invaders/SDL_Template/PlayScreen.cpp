@@ -24,7 +24,7 @@ PlayScreen::PlayScreen(PlaySideBar*PlaySideBarPS) {
 
 
 	mLevel = nullptr;
-	mLevelStartDelay = 1.0f;
+	mLevelStartDelay = 0.30f; // This is where the timer value of delay of 1 player is adujusted 
 	mLevelStarted = false;
 	mPlayer = nullptr;
 	
@@ -86,9 +86,10 @@ void PlayScreen::Update() {
 	
 
 		if (!mLevelStarted) {
+			StartNextLevel();
 			mLevelStartTimer += mTimer->DeltaTime();
 			if (mLevelStartTimer >= mLevelStartDelay) {
-				StartNextLevel();
+				
 			}
 		}
 		else {
@@ -102,10 +103,10 @@ void PlayScreen::Update() {
 			mSideBar->Update();
 		}
 	}
-	//else {
+	else {
 	//	if (!Mix_PlayingMusic()) {
-	//		mGameStarted = true;
-	//	}
+		mGameStarted = true;
+		}
 	//}
 }
 
@@ -135,7 +136,7 @@ void PlayScreen::StartNewGame() {
 	mPlayer->Active(false);
 
 	//mSideBar->SetHighScore(30000);
-	//mSideBar->SetShip(mPlayer->Lives());
+	mSideBar->SetLives(mPlayer->Lives());
 	//mSideBar->SetPlayerScore(mPlayer->Score());
 	//mSideBar->SetLevel(0);
 	mGameStarted = false;
