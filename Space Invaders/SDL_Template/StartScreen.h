@@ -19,7 +19,7 @@ private:
 	Texture* m1or2Players;
 	Texture* m5000Display;
 	Texture* m0Display;
-	Texture* mRound;
+	//Texture* mRound;
 
 	Scoreboard* mPlayerOneScore;
 	Scoreboard* mPlayerTwoScore;

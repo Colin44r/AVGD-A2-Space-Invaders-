@@ -13,12 +13,12 @@ StartScreen::StartScreen() {
 
 	mBottomBar = new GameEntity(Graphics::SCREEN_WIDTH * 0.5f,Graphics::SCREEN_HEIGHT * 0.7f);
 	mPleaseSelect = new Texture("PLEASE  SELECT", "emulogic.ttf", 32, { 0, 255, 255 });
-	mRights = new Texture("� TATITO CORP.MCMLXXXV", "emulogic.ttf", 32, { 255, 0, 0 });
+	mRights = new Texture("© TATITO CORP.MCMLXXXV", "emulogic.ttf", 32, { 255, 0, 0 });
 	m1or2Players = new Texture("< 1 or 2 Players >", "emulogic.ttf", 32, { 255, 0, 0 });
 	mGreenSkull2 = new Texture("GeneralSprite.png", 9, 0, 8, 8);
 	//m5000Display = new Texture("05000", "emulogic.ttf", 32, { 255, 255, 255 });
 	//m0Display =  new Texture("00000", "emulogic.ttf", 32, { 255, 255, 255 });
-	mRound = new Texture("ROUND", "emulogic.ttf", 32, { 255, 255, 255 });
+	//mRound = new Texture("ROUND", "emulogic.ttf", 32, { 255, 255, 255 });
 
 
 	mPlayerModes = new GameEntity(Graphics::SCREEN_WIDTH * 0.5f, Graphics::SCREEN_HEIGHT * 0.55f);
@@ -39,7 +39,7 @@ StartScreen::StartScreen() {
 	//mHigh->Parent(mTopBar);
 	//m5000Display->Parent(mTopBar);
 	//m0Display->Parent(mTopBar);
-	mRound->Parent(mTopBar);
+	//mRound->Parent(mTopBar);
 
 	//mPlayerOne->Position(-Graphics::SCREEN_WIDTH * 0.35f, 0.0f);
 	//mPlayerTwo->Position(Graphics::SCREEN_WIDTH * 0.2f, 0.0f);
@@ -47,7 +47,7 @@ StartScreen::StartScreen() {
 	//mScore->Position(375.0f, 35.0f);
 	//m0Display->Position(375.0f, 210.0f);
 	//m5000Display ->Position(375.0f, 90.0f);
-	mRound->Position(365.0f, 450.0f);
+	//mRound->Position(365.0f, 450.0f);
 
 	mPlayerModes->Parent(this);
 	mOnePlayerMode->Parent(mPlayerModes);
@@ -115,8 +115,8 @@ StartScreen::~StartScreen() {
 	//m5000Display = nullptr;
 	//delete m0Display;
 	//m0Display = nullptr;
-	delete mRound;
-	mRound = nullptr;
+	//delete mRound;
+	//mRound = nullptr;
 
 	delete mLogo;
 	mLogo = nullptr;
@@ -192,7 +192,7 @@ void StartScreen::Render() {
 	mGreenSkull2->Render();
 	//m0Display ->Render();
 	//m5000Display->Render();
-	mRound->Render();
+//	mRound->Render();
 
 	//mLogo->Render();
 	//mAnimatedLogo->Render();

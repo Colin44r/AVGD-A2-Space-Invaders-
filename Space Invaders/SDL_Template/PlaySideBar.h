@@ -19,6 +19,7 @@ private:
 	float mBlinkInterval;
 	bool mPlayerOneLabelVisible;
 
+	Texture* mRoundLabel;
 	Texture* mHighLabel;
 	Texture* mScoreLabel;
 	Scoreboard* mHighScoreBoard;
