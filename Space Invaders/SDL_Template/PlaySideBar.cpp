@@ -38,15 +38,21 @@ PlaySideBar::PlaySideBar() {
 	mPlayerOneScore->Parent(this);
 	mPlayerOneScore->Position(25.0f, 202.0f);
 
+	mRoundNumber = new Scoreboard();
+	mRoundNumber->Parent(this);
+	mRoundNumber->Position(25.0f, 512.0f);
+
 	mShips = new GameEntity();
 	mShips->Parent(this);
-	mShips->Position(-40.0f, 420.0f);
-
+	mShips->Position(-40.0f, 800.0f);
+	
+	
 	for (int i = 0; i < MAX_SHIP_TEXTURES; ++i) {
-		mShipTextures[i] = new Texture("PlayerShips.png", 0, 0, 60, 64);
+		mShipTextures[i] = new Texture("GeneralSprite.png", 112, 63, 16, 8);
 		mShipTextures[i]->Parent(mShips);
-		mShipTextures[i]->Position(62.0f * (i % 3), 70.0f * (i / 3));
+		mShipTextures[i]->Position(-12.0f + (i * 16), 70.0f * (i / 3));
 	}
+	mShips->Scale(Vector2(3.8f, 2.8f));
 
 	mTotalShipsLabel = new Scoreboard();
 	mTotalShipsLabel->Parent(mShips);
@@ -79,6 +85,8 @@ PlaySideBar::~PlaySideBar() {
 	mPlayerOneScore = nullptr;
 	delete mRoundLabel;
 	mRoundLabel = nullptr;
+	delete mRoundNumber;
+	mRoundNumber = nullptr;
 
 	delete mShips;
 	mShips = nullptr;
@@ -103,6 +111,10 @@ void PlaySideBar::SetHighScore(int score) {
 
 void PlaySideBar::SetPlayerScore(int score) {
 	mPlayerOneScore->Score(score);
+}
+
+void PlaySideBar::SetRoundNumber(int score) {
+	mRoundNumber->Score(score);
 }
 
 void PlaySideBar::SetLives(int ships) {
@@ -213,7 +225,7 @@ void PlaySideBar::Render() {
 	mPlayerOneLabel->Render();
 	mPlayerOneScore->Render();
 	mRoundLabel ->Render();
-
+	mRoundNumber->Render();
 	
 	for (int i = 0; i < MAX_SHIP_TEXTURES && i < mTotalShips; ++i) {
 		mShipTextures[i]->Render();

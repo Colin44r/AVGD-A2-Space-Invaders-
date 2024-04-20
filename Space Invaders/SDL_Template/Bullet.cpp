@@ -3,11 +3,12 @@
 Bullet::Bullet() {
 	mTimer = Timer::Instance();
 
-	mTexture = new Texture("Bullet.png");
+	mTexture = new Texture("GeneralSprite.png", 120, 54, 1, 6);
 	mTexture->Parent(this);
 	mTexture->Position(Vec2_Zero);
 
 	mSpeed = 500;
+	mTexture->Scale(Vector2(3.8f, 2.8f));
 
 	Reload();
 }

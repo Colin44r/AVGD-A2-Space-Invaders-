@@ -26,7 +26,7 @@ ScreenManager::ScreenManager() {
 	mCurrentScreen = Start;
 
 	mSideBarSS = new PlaySideBar();
-	mSideBarSS->Position(970.0f, 70.0f);
+	mSideBarSS->Position(1070.0f, 70.0f);
 
 	mPlayScreen = new PlayScreen(mSideBarSS);
 }

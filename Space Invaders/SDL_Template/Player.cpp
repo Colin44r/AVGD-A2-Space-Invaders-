@@ -11,12 +11,15 @@ Player::Player() {
 	mScore = 0;
 	mLives = 2;
 
-	mShip = new Texture("PlayerShips.png", 0, 0, 60, 64);
+	mShip = new Texture("GeneralSprite.png", 112, 63, 16, 8);
 	mShip->Parent(this);
 	mShip->Position(Vec2_Zero);
+	//TODO: Figure out how to move the ship down without breaking his moveabilty 
+
+	mShip->Scale(Vector2(3.8f, 2.8f));
 
 	mMoveSpeed = 100.0f;
-	mMoveBounds = Vector2(0.0f, 800.0f);
+	mMoveBounds = Vector2(20.0f, 930.0f);
 
 	mDeathAnimation = new AnimatedTexture("PlayerExplosion.png", 0, 0, 128, 128, 4, 1.0f, AnimatedTexture::Horizontal);
 	mDeathAnimation->Parent(this);
@@ -99,14 +102,15 @@ void Player::HandleMovement() {
 
 	//Making sure the player DOES NOT leave the space they are allowed to be in
 	Vector2 pos = Position(Local);
-	if (pos.x < mMoveBounds.x + mShip->ScaledDimensions().x * 0.5f) {
-		pos.x = mMoveBounds.x + mShip->ScaledDimensions().x * 0.5;
+	if (pos.x < mMoveBounds.x) {
+		pos.x = mMoveBounds.x;
 	}
-	else if (pos.x > mMoveBounds.y - mShip->ScaledDimensions().y * 0.5f) {
-		pos.x > mMoveBounds.y - mShip->ScaledDimensions().y * 0.5f;
+	else if (pos.x > mMoveBounds.y) {
+		pos.x = mMoveBounds.y;
 	}
 
 	Position(pos);
+	
 }
 
 void Player::Update() {

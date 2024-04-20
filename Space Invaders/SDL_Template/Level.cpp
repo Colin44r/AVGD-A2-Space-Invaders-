@@ -289,17 +289,17 @@ void Level::HandleEnemyDiving() {
 		}
 	}
 
-	//if (mFormation->Locked()) {
-	//	if (InputManager::Instance()->KeyPressed(SDL_SCANCODE_B)) {
-	//		for (auto e : mEnemies) {
-	//			if (e->Type() == Enemy::Butterfly &&
-	//				e->CurrentState() == Enemy::InFormation) {
-	//				e->Dive();
-	//				break;
-	//			}
-	//		}
-	//	}
-	//}
+	if (mFormation->Locked()) {
+		if (InputManager::Instance()->KeyPressed(SDL_SCANCODE_B)) {
+			for (auto e : mEnemies) {
+				if (e->Type() == Enemy::Butterfly &&
+					e->CurrentState() == Enemy::InFormation) {
+					e->Dive();
+					break;
+				}
+			}
+		}
+	}
 }
 
 
@@ -309,9 +309,9 @@ void Level::Update() {
 		HandleStartLabels();
 	}
 	else {
-		if (!mSpawningFinished) {
+		/*if (!mSpawningFinished) {
 			HandleEnemySpawning();
-		}
+		}*/
 
 		if (!mChallengeStage) {
 			HandleEnemyFormation();

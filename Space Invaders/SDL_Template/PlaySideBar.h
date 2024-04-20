@@ -25,6 +25,7 @@ private:
 	Scoreboard* mHighScoreBoard;
 
 	Scoreboard* mPlayerOneScore;
+	Scoreboard* mRoundNumber;
 
 	GameEntity* mShips;
 	Texture* mShipTextures[MAX_SHIP_TEXTURES];
@@ -51,6 +52,7 @@ public:
 	void SetPlayerScore(int score);
 	void SetLives(int ships);
 	void SetLevel(int level);
+	void SetRoundNumber(int score);
 
 	void Update() override;
 	void Render() override;
